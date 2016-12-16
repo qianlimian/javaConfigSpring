@@ -1,6 +1,8 @@
 package com.wanghaidong.entities;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable{
 	private Long id;
 	private Order order;
 	private String product;
@@ -36,5 +38,11 @@ public class Item {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", order=" + order + ", product=" + product + ", price=" + price + ", quantity="
+				+ quantity + "]";
+	}
+	
 	
 }

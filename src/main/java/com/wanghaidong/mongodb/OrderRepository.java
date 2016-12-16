@@ -2,6 +2,7 @@ package com.wanghaidong.mongodb;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.wanghaidong.entities.Order;
@@ -14,5 +15,6 @@ public interface OrderRepository extends MongoRepository<Order, String>{
 	 * @author wanghaidong
 	 * @date 2016年12月16日 上午11:23:37
 	 */
+	@Cacheable("testCache")
 	List<Order> findByCustomer(String customer);
 }
