@@ -1,5 +1,8 @@
 package spittr.web;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import spittr.entities.Spitter;
 
@@ -32,12 +37,15 @@ public class HomeController {
 	 * @param spitter
 	 * @param errors
 	 * @return
+	 * @throws IOException 
+	 * @throws IllegalStateException 
 	 */
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public String processRegistration(@Valid Spitter spitter,Errors errors){
+	public String processRegistration(@RequestParam("picture") MultipartFile file,@Valid Spitter spitter,Errors errors) throws IllegalStateException, IOException{
 		if(errors.hasErrors()){
 			return "registerForm";
 		}
+		file.transferTo(new File("c:\\temp\\"+file.getOriginalFilename()));
 		return "redirect:/spitterList";
 	}
 	/**

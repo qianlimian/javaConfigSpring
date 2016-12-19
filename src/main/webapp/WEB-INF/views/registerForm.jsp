@@ -17,7 +17,7 @@ input.error {
 	background-color: #ffcccc;
 }
 </style>
-<sf:form action="register" method="post" commandName="spitter">
+<sf:form action="register" method="post" commandName="spitter" enctype="multipart/form-data">
 	<sf:label path="firstName" cssErrorClass="error">FirstName:</sf:label>
 	<sf:input path="firstName" cssErrorClass="error"/><sf:errors path="firstName" cssClass="error"></sf:errors><br>
 	
@@ -26,6 +26,7 @@ input.error {
 	Email:<sf:input path="email"/><br>
 	Username:<sf:input path="username"/><br>
 	Password:<sf:password path="password"/><br>
+	<input type="file" name="picture" accept="image/jpeg,image/png,image/gif" /><br>
 	<input type="submit" value="Register" />
 </sf:form>
 </head>
