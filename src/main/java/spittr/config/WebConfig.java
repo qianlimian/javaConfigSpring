@@ -23,7 +23,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("spittr.web")
-@ImportResource("classpath:webFlow.xml")
 public class WebConfig extends WebMvcConfigurerAdapter{
 	/**
 	 *  ”ÕºΩ‚Œˆ∆˜
